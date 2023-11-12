@@ -81,7 +81,7 @@ const Header = () => {
           <div className='flex items-center gap-4'>
             {
               user && token
-                ? (<div className='flex items-center justify-start z-50 relative'>
+                ? (<div className='flex items-center justify-start border border-solid z-50 relative'>
                     {dropdownState.open && (
                       <div className='mt-[220px] p-5 absolute w-[200px] right-10 bg-[#728196] rounded-md text-white'>
                        <ul>

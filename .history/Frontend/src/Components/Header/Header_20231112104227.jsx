@@ -81,24 +81,7 @@ const Header = () => {
           <div className='flex items-center gap-4'>
             {
               user && token
-                ? (<div className='flex items-center justify-start z-50 relative'>
-                    {dropdownState.open && (
-                      <div className='mt-[220px] p-5 absolute w-[200px] right-10 bg-[#728196] rounded-md text-white'>
-                       <ul>
-                       <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
-                         <div className='flex items-center justify-between'>
-                         <figure className='border border-solid w-8 h-8 rounded-full cursor-pointer'>
-                         <img src={user.photo} className='w-8 h-8 rounded-full object-cover' alt="UserImg" />
-                       </figure>
-                          <li>{user.name}</li>
-                         </div>
-                        </Link>
-                         <li>Item 2</li>
-                         <li>Item 3</li>
-                         <li>Item 4</li>
-                       </ul>
-                      </div>
-                     )}
+                ? (<div className='flex items-center justify-start border border-solid z-50'>
                      <div>
                      <button className='border border-solid w-10 h-10 rounded-full cursor-pointer' type={'button'} onClick={handleDropdownClick}>
                      <img src={user.photo} className='w-10 h-10 rounded-full object-cover' alt="UserImg" />
@@ -110,6 +93,24 @@ const Header = () => {
                  flex items-center justify-center rounded-[50px]'>Login</button>
               </Link>)
             }
+
+            {dropdownState.open && (
+              <div className='mt-[200px] border p-5'>
+               <ul>
+               <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
+                 <div className='flex items-center justify-between'>
+                 <figure className='border border-solid w-8 h-8 rounded-full cursor-pointer'>
+                 <img src={user.photo} className='w-8 h-8 rounded-full object-cover' alt="UserImg" />
+               </figure>
+                  <li>{user.name}</li>
+                 </div>
+                </Link>
+                 <li>Item 2</li>
+                 <li>Item 3</li>
+                 <li>Item 4</li>
+               </ul>
+              </div>
+             )}
 
             <span className='md:hidden' onClick={toggleMenu}>
               <BiMenu className='w-6 h-6 cursor-pointer' />

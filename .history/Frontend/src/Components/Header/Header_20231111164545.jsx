@@ -81,9 +81,14 @@ const Header = () => {
           <div className='flex items-center gap-4'>
             {
               user && token
-                ? (<div className='flex items-center justify-start z-50 relative'>
+                ? (<div className='flex-col items-center justify-center border border-solid z-50'>
+                      <div>
+                      <button className='border border-solid w-10 h-10 rounded-full cursor-pointer' type={'button'} onClick={handleDropdownClick}>
+                      <img src={user.photo} className='w-10 h-10 rounded-full object-cover' alt="UserImg" />
+                      </button>
+                      </div>
                     {dropdownState.open && (
-                      <div className='mt-[220px] p-5 absolute w-[200px] right-10 bg-[#728196] rounded-md text-white'>
+                      <div className='mt-[200px] border p-5'>
                        <ul>
                        <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
                          <div className='flex items-center justify-between'>
@@ -99,11 +104,6 @@ const Header = () => {
                        </ul>
                       </div>
                      )}
-                     <div>
-                     <button className='border border-solid w-10 h-10 rounded-full cursor-pointer' type={'button'} onClick={handleDropdownClick}>
-                     <img src={user.photo} className='w-10 h-10 rounded-full object-cover' alt="UserImg" />
-                     </button>
-                     </div>
                 </div>)
                 : (<Link to='/login'>
                 <button type='submit' className='bg-primaryColor py-2 px-6 text-white font-[600] h-[44px]
