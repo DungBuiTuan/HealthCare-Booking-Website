@@ -86,7 +86,7 @@ const Header = () => {
                       <img src={user.photo} className='w-10 h-10 rounded-full object-cover' alt="UserImg" />
                       </button>
                     {dropdownState.open && (
-                      <div className='bg-[#707F95] text-white mt-[220px] right-10 p-5 w-[200px] rounded-md leading-7 z-50 absolute'>
+                      <div className='bg-[#707F95] text-white mt-[220px] right-10 p-5 w-[200px] rounded-md leading-5 z-50 absolute'>
                        <ul>
                        <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
                          <div className='flex items-center justify-between'>

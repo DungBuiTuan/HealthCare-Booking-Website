@@ -81,12 +81,12 @@ const Header = () => {
           <div className='flex items-center gap-4'>
             {
               user && token
-                ? (<div className='flex items-center justify-center relative'>
+                ? (<div className='flex items-center justify-center'>
                       <button className='border border-solid w-10 h-10 rounded-full cursor-pointer' type={'button'} onClick={handleDropdownClick}>
                       <img src={user.photo} className='w-10 h-10 rounded-full object-cover' alt="UserImg" />
                       </button>
                     {dropdownState.open && (
-                      <div className='bg-[#707F95] text-white mt-[220px] right-10 p-5 w-[200px] rounded-md leading-7 z-50 absolute'>
+                      <div className='mt-[200px] z-50 border p-5'>
                        <ul>
                        <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
                          <div className='flex items-center justify-between'>
