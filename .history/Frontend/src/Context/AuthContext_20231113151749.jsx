@@ -36,6 +36,7 @@ const authReducer = (state, action) => {
     }
 }
 
+// eslint-disable-next-line react/prop-types
 export const AuthContextProvider = ({children}) => {
     //use reducer to manage the state of our app
     const [state, dispatch] = useReducer(authReducer, initialState);
@@ -51,6 +52,6 @@ export const AuthContextProvider = ({children}) => {
         role:state.role,
         token:state.token,
         dispatch}}>
-    {children}
+        {children}
     </authContext.Provider>
 }

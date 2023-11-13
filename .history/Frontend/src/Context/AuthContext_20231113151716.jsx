@@ -51,6 +51,6 @@ export const AuthContextProvider = ({children}) => {
         role:state.role,
         token:state.token,
         dispatch}}>
-    {children}
+        {children}
     </authContext.Provider>
 }

@@ -96,10 +96,10 @@ const Header = () => {
           </div>
 
           {/*--------------Nav Right--------------*/}
-          <div className='flex items-center gap-4'>
+          <div className='flex items-center gap-4 lg:hidden'>
             {
               user && token
-                ? (<div className='flex items-center justify-center relative max-md:hidden'>
+                ? (<div className='flex items-center justify-center relative'>
                   <button className='border border-solid w-10 h-10 rounded-full cursor-pointer' type={'button'} onClick={handleDropdownClick}>
                     <img src={user.photo} className='w-10 h-10 rounded-full object-cover' alt="UserImg" />
                   </button>
