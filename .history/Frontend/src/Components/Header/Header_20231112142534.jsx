@@ -34,10 +34,9 @@ const Header = () => {
  const handleDropdownClick = () =>
  setDropdownState({ open: !dropdownState.open });
 
-   //choose type logout from authContext
-   const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
-  }
+ const handleLogout = () => {
+  dispatch({ type: "LOGOUT" });
+}
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll', () => {

@@ -1,10 +1,16 @@
 import { createContext, useEffect, useReducer } from "react";
 
+
+const parsedData = JSON.parse(localStorage.getItem('user'));
 //initailize state
+try {
 const initialState = {
-    user: localStorage.getItem('user') !== undefined ? JSON.parse(localStorage.getItem('user')) : null,
-    role: localStorage.getItem('role') || null,
-    token: localStorage.getItem('token') || null
+        user: localStorage.getItem('user') !== undefined ? parsedData : null,
+        role: localStorage.getItem('role') || null,
+        token: localStorage.getItem('token') || null
+    }
+} catch (error) {
+    console.log(error)
 }
 
 //create context
@@ -36,7 +42,6 @@ const authReducer = (state, action) => {
     }
 }
 
-// eslint-disable-next-line react/prop-types
 export const AuthContextProvider = ({children}) => {
     //use reducer to manage the state of our app
     const [state, dispatch] = useReducer(authReducer, initialState);

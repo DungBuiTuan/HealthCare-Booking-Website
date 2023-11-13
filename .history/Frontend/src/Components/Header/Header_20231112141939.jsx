@@ -27,17 +27,16 @@ const Header = () => {
 
   const headerRef = useRef(null)
   const menuRef = useRef(null)
-  const { user, token, role, dispatch } = useContext(authContext);
+  const { user, token, role } = useContext(authContext);
 
   const [dropdownState, setDropdownState] = useState({ open: false });
 
  const handleDropdownClick = () =>
  setDropdownState({ open: !dropdownState.open });
 
-   //choose type logout from authContext
-   const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
-  }
+//  const handleLogout = () => {
+//   dispatch({ type: "LOGOUT" });
+// }
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll', () => {
@@ -103,7 +102,6 @@ const Header = () => {
                         </Link>
                          <li>{user.name}</li>
                          <li>Item 3</li>
-                         <li><button type={'submit'} onClick={handleLogout}>Logout</button></li>
                        </ul>
                       </div>
                      )}

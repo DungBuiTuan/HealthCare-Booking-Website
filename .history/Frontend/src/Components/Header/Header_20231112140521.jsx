@@ -27,17 +27,12 @@ const Header = () => {
 
   const headerRef = useRef(null)
   const menuRef = useRef(null)
-  const { user, token, role, dispatch } = useContext(authContext);
+  const { user, token, role } = useContext(authContext);
 
   const [dropdownState, setDropdownState] = useState({ open: false });
 
  const handleDropdownClick = () =>
  setDropdownState({ open: !dropdownState.open });
-
-   //choose type logout from authContext
-   const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
-  }
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll', () => {
@@ -91,19 +86,19 @@ const Header = () => {
                       <img src={user.photo} className='w-10 h-10 rounded-full object-cover' alt="UserImg" />
                       </button>
                     {dropdownState.open && (
-                      <div className='bg-[#707F95] text-white mt-[220px] right-0 p-5 w-[300px] rounded-md leading-7 z-50 absolute'>
+                      <div className='bg-[#707F95] text-white mt-[220px] right-10 p-5 w-[200px] rounded-md leading-7 z-50 absolute'>
                        <ul>
                        <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`}>
-                         <div className='flex items-center justify-start'>
-                         <figure className='border border-solid w-8 h-8 rounded-full mr-2 cursor-pointer'>
+                         <div className='flex items-center justify-between'>
+                         <figure className='border border-solid w-8 h-8 rounded-full cursor-pointer'>
                          <img src={user.photo} className='w-8 h-8 rounded-full object-cover' alt="UserImg" />
                        </figure>
-                          <li className='text-[16px] font-bold'>{user.name}</li>
+                          <li>{user.name}</li>
                          </div>
                         </Link>
                          <li>{user.name}</li>
                          <li>Item 3</li>
-                         <li><button type={'submit'} onClick={handleLogout}>Logout</button></li>
+                         <li>Item 4</li>
                        </ul>
                       </div>
                      )}

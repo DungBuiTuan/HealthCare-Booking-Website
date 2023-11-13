@@ -2,5 +2,6 @@
     "workbench.colorTheme": "Copilot Theme",
     "workbench.iconTheme": "vscode-icons",
     "files.associations": { "*.css": "tailwindcss" },
-    "css.validate": false
+    "css.validate": false,
+    "git.ignoreLimitWarning": true
 }

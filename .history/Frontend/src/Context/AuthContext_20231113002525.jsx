@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useEffect, useReducer } from "react";
 
 //initailize state
@@ -36,15 +37,22 @@ const authReducer = (state, action) => {
     }
 }
 
-// eslint-disable-next-line react/prop-types
 export const AuthContextProvider = ({children}) => {
     //use reducer to manage the state of our app
     const [state, dispatch] = useReducer(authReducer, initialState);
     //localStorage useEffect
     useEffect(()=>{
+        const user = localStorage.getItem('user');
+
+    if (user !== undefined && user !== null) {
+      const parsedUser = JSON.parse(user);
+      localStorage.setItem('user', user);
+      dispatch({ type: 'LOGIN_SUCCESS', payload: { user: parsedUser } });
+    }else {
         localStorage.setItem('user', JSON.stringify(state.user))
         localStorage.setItem('role', state.role)
         localStorage.setItem('token', state.token)
+    }
     },[state])
     //return auth context provider
     return <authContext.Provider value={{
